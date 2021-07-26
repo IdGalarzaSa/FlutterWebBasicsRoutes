@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_basics/locator.dart';
 import 'package:flutter_web_basics/router/route_generator.dart';
-import 'package:flutter_web_basics/ui/pages/counter_stateful_page.dart';
+import 'package:flutter_web_basics/services/navigation_service.dart';
+import 'package:flutter_web_basics/ui/layouts/main_layout_page.dart';
+import 'package:flutter_web_basics/ui/views/counter_stateful_view.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // Ejecutamos la configuracion del get it
+  setupLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'GEDESA',
-      initialRoute: CounterStatefulPage.ROUTE_NAME,
-      // Cuando definimos un route generator, ya no requermimos definir la propiedad "route"
-
-      // routes: {
-      //   CounterStatefulPage.routeName: (_) => CounterStatefulPage(),
-      //   CounterProviderPage.routeName: (_) => CounterProviderPage()
-      // },
-
+      initialRoute: CounterStatefulView.ROUTE_NAME,
       onGenerateRoute: (route) => RouteGenerator.generateRoute(route),
+      // Usamos el locator donde se almacenan todos nuestros servicios como singletons
+      navigatorKey: locator<NavigationService>().navigationKey,
+      builder: (_, child) {
+        return MainLayoutPage(viewChild: child ?? Container());
+      },
     );
   }
 }
