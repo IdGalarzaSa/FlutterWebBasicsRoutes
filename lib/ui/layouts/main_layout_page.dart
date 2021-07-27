@@ -6,7 +6,6 @@ class MainLayoutPage extends StatelessWidget {
   final Widget viewChild;
 
   const MainLayoutPage({
-    Key? key,
     required this.viewChild,
   });
 
