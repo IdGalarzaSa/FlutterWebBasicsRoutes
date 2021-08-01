@@ -21,42 +21,48 @@ class _HorizontalMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blueGrey,
-      child: Row(
-        children: [
-          CustomTextButton(
-            buttonFunction: () =>
-                // Navigator.pushNamed(context, CounterStatefulView.ROUTE_NAME),
-                locator<NavigationService>()
-                    .navigateTo(CounterStatefulView.ROUTE_NAME),
-            buttonText: "Stateful counter",
-          ),
-          SizedBox(width: 10),
-          CustomTextButton(
-            buttonFunction: () => locator<NavigationService>()
-                .navigateTo("${CounterStatefulView.ROUTE_NAME}/100"),
-            buttonText: "Stateful counter init with 100",
-          ),
-          SizedBox(width: 10),
-          CustomTextButton(
-            buttonFunction: () => locator<NavigationService>()
-                .navigateTo(CounterProviderView.ROUTE_NAME),
-            buttonText: "Provider counter",
-          ),
-          SizedBox(width: 10),
-          CustomTextButton(
-            buttonFunction: () => locator<NavigationService>()
-                .navigateTo("${CounterProviderView.ROUTE_NAME}?q=75"),
-            buttonText: "Provider counter init with 75",
-          ),
-          SizedBox(width: 10),
-          CustomTextButton(
-            buttonFunction: () =>
-                locator<NavigationService>().navigateTo("/ddasda1232132"),
-            buttonText: "Other page",
-          ),
-          SizedBox(width: 10)
-        ],
+      width: double.infinity,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            CustomTextButton(
+              buttonFunction: () =>
+                  // Navigator.pushNamed(context, CounterStatefulView.ROUTE_NAME),
+                  locator<NavigationService>()
+                      .navigateTo(CounterStatefulView.ROUTE_NAME),
+              buttonText: "Stateful counter",
+            ),
+            SizedBox(width: 10),
+            CustomTextButton(
+              buttonFunction: () => locator<NavigationService>()
+                  .navigateTo("${CounterStatefulView.ROUTE_NAME}/100"),
+              buttonText: "Stateful counter init with 100",
+            ),
+            SizedBox(width: 10),
+            CustomTextButton(
+              buttonFunction: () => locator<NavigationService>()
+                  .navigateTo(CounterProviderView.ROUTE_NAME),
+              buttonText: "Provider counter",
+            ),
+            SizedBox(width: 10),
+            CustomTextButton(
+              buttonFunction: () => locator<NavigationService>()
+                  .navigateTo("${CounterProviderView.ROUTE_NAME}?q=75"),
+              buttonText: "Provider counter init with 75",
+            ),
+            SizedBox(width: 10),
+            CustomTextButton(
+              buttonFunction: () =>
+                  locator<NavigationService>().navigateTo("/ddasda1232132"),
+              buttonText: "Other page",
+            ),
+            SizedBox(width: 10)
+          ],
+        ),
       ),
+
+      // child:
     );
   }
 }
@@ -71,36 +77,36 @@ class _VerticalMenu extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              child: CustomTextButton(
-                buttonFunction: () =>
-                    // Navigator.pushNamed(context, CounterStatefulView.ROUTE_NAME),
-                    locator<NavigationService>()
-                        .navigateTo(CounterStatefulView.ROUTE_NAME),
-                buttonText: "Stateful counter",
-                textAlignment: Alignment.centerLeft,
-              ),
+            CustomTextButton(
+              buttonFunction: () =>
+                  // Navigator.pushNamed(context, CounterStatefulView.ROUTE_NAME),
+                  locator<NavigationService>()
+                      .navigateTo(CounterStatefulView.ROUTE_NAME),
+              buttonText: "Stateful counter",
             ),
             SizedBox(width: 10),
-            Container(
-              width: double.infinity,
-              child: CustomTextButton(
-                buttonFunction: () => locator<NavigationService>()
-                    .navigateTo(CounterProviderView.ROUTE_NAME),
-                buttonText: "Provider counter",
-                textAlignment: Alignment.centerLeft,
-              ),
+            CustomTextButton(
+              buttonFunction: () => locator<NavigationService>()
+                  .navigateTo("${CounterStatefulView.ROUTE_NAME}/100"),
+              buttonText: "Stateful counter init with 100",
             ),
             SizedBox(width: 10),
-            Container(
-              width: double.infinity,
-              child: CustomTextButton(
-                buttonFunction: () =>
-                    locator<NavigationService>().navigateTo("/ddasda1232132"),
-                buttonText: "Other page",
-                textAlignment: Alignment.centerLeft,
-              ),
+            CustomTextButton(
+              buttonFunction: () => locator<NavigationService>()
+                  .navigateTo(CounterProviderView.ROUTE_NAME),
+              buttonText: "Provider counter",
+            ),
+            SizedBox(width: 10),
+            CustomTextButton(
+              buttonFunction: () => locator<NavigationService>()
+                  .navigateTo("${CounterProviderView.ROUTE_NAME}?q=75"),
+              buttonText: "Provider counter init with 75",
+            ),
+            SizedBox(width: 10),
+            CustomTextButton(
+              buttonFunction: () =>
+                  locator<NavigationService>().navigateTo("/ddasda1232132"),
+              buttonText: "Other page",
             ),
             SizedBox(width: 10)
           ],
