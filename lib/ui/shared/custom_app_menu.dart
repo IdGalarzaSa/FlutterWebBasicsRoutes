@@ -61,8 +61,6 @@ class _HorizontalMenu extends StatelessWidget {
           ],
         ),
       ),
-
-      // child:
     );
   }
 }
