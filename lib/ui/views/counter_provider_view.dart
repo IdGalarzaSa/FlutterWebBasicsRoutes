@@ -6,10 +6,17 @@ import 'package:provider/provider.dart';
 class CounterProviderView extends StatelessWidget {
   static const ROUTE_NAME = "/provider";
 
+  final String counter;
+
+  const CounterProviderView({
+    Key? key,
+    required this.counter,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => CounterProvider(),
+      create: (_) => CounterProvider(counter),
       child: _CounterProviderPageBody(),
     );
   }

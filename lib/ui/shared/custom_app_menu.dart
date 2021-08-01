@@ -44,6 +44,12 @@ class _HorizontalMenu extends StatelessWidget {
           ),
           SizedBox(width: 10),
           CustomTextButton(
+            buttonFunction: () => locator<NavigationService>()
+                .navigateTo("${CounterProviderView.ROUTE_NAME}?q=75"),
+            buttonText: "Provider counter init with 75",
+          ),
+          SizedBox(width: 10),
+          CustomTextButton(
             buttonFunction: () =>
                 locator<NavigationService>().navigateTo("/ddasda1232132"),
             buttonText: "Other page",

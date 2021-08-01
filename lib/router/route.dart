@@ -42,6 +42,7 @@ class Routes {
   static Handler _notFoundHandler =
       Handler(handlerFunc: (context, params) => NotFoundView());
 
+  // Stateful route handler
   static Handler _counterStatefulViewHandler = Handler(
     handlerFunc: (context, params) {
       final base = params["base"];
@@ -54,6 +55,13 @@ class Routes {
     },
   );
 
-  static Handler _counterProviderViewHandler =
-      Handler(handlerFunc: (context, params) => CounterProviderView());
+  // Provider route handler
+  static Handler _counterProviderViewHandler = Handler(
+    handlerFunc: (context, params) {
+      print(params);
+
+      final base = params["q"];
+      return CounterProviderView(counter: base?.first ?? '');
+    },
+  );
 }
