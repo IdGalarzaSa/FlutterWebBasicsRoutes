@@ -31,9 +31,8 @@ class Routes {
   }
 
   // Handlers
-  static Handler _notFoundHandler = Handler(
-      handlerFunc: (context, params) => NotFoundView(),
-      type: HandlerType.function);
+  static Handler _notFoundHandler =
+      Handler(handlerFunc: (context, params) => NotFoundView());
 
   static Handler _counterStatefulViewHandler =
       Handler(handlerFunc: (context, params) => CounterStatefulView());

@@ -3,7 +3,6 @@ import 'package:flutter_web_basics/locator.dart';
 import 'package:flutter_web_basics/router/route.dart';
 import 'package:flutter_web_basics/services/navigation_service.dart';
 import 'package:flutter_web_basics/ui/layouts/main_layout_page.dart';
-import 'package:flutter_web_basics/ui/views/counter_stateful_view.dart';
 
 void main() {
   // Ejecutamos la configuracion del get it

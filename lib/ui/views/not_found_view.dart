@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_basics/locator.dart';
-import 'package:flutter_web_basics/services/navigation_service.dart';
 import 'package:flutter_web_basics/ui/shared/custom_text_button.dart';
 import 'package:flutter_web_basics/ui/views/counter_stateful_view.dart';
 
