@@ -33,6 +33,12 @@ class _HorizontalMenu extends StatelessWidget {
           SizedBox(width: 10),
           CustomTextButton(
             buttonFunction: () => locator<NavigationService>()
+                .navigateTo("${CounterStatefulView.ROUTE_NAME}/100"),
+            buttonText: "Stateful counter init with 100",
+          ),
+          SizedBox(width: 10),
+          CustomTextButton(
+            buttonFunction: () => locator<NavigationService>()
                 .navigateTo(CounterProviderView.ROUTE_NAME),
             buttonText: "Provider counter",
           ),

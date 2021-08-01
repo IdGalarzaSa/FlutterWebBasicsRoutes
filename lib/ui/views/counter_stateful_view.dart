@@ -4,12 +4,23 @@ import 'package:flutter_web_basics/ui/shared/custom_text_button.dart';
 class CounterStatefulView extends StatefulWidget {
   static const ROUTE_NAME = "/stateful";
 
+  final counter;
+
+  const CounterStatefulView({Key? key, required this.counter})
+      : super(key: key);
+
   @override
   _CounterStatefulViewState createState() => _CounterStatefulViewState();
 }
 
 class _CounterStatefulViewState extends State<CounterStatefulView> {
-  int counter = 0;
+  late int counter;
+
+  @override
+  void initState() {
+    counter = widget.counter;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

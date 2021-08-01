@@ -17,12 +17,20 @@ class Routes {
     // 404 not found handler
     fluroRoute.notFoundHandler = _notFoundHandler;
 
+    // StateFul
     fluroRoute.define(
       CounterStatefulView.ROUTE_NAME,
       handler: _counterStatefulViewHandler,
       transitionType: routeTransitionType,
     );
 
+    fluroRoute.define(
+      "${CounterStatefulView.ROUTE_NAME}/:base",
+      handler: _counterStatefulViewHandler,
+      transitionType: routeTransitionType,
+    );
+
+    // Provider
     fluroRoute.define(
       CounterProviderView.ROUTE_NAME,
       handler: _counterProviderViewHandler,
@@ -34,8 +42,17 @@ class Routes {
   static Handler _notFoundHandler =
       Handler(handlerFunc: (context, params) => NotFoundView());
 
-  static Handler _counterStatefulViewHandler =
-      Handler(handlerFunc: (context, params) => CounterStatefulView());
+  static Handler _counterStatefulViewHandler = Handler(
+    handlerFunc: (context, params) {
+      final base = params["base"];
+      int counter = 0;
+      if (base?.first != null && int.tryParse(base?.first ?? "") != null) {
+        counter = int.parse(base?.first ?? "");
+      }
+
+      return CounterStatefulView(counter: counter);
+    },
+  );
 
   static Handler _counterProviderViewHandler =
       Handler(handlerFunc: (context, params) => CounterProviderView());
